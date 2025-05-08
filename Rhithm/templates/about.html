@@ -1,0 +1,245 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Rhithm</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fade: 'fadeIn 1s ease-in-out',
+            float: 'float 3s ease-in-out infinite'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-black text-white font-sans">
+  <header class="w-full fixed top-0 left-0 bg-black bg-opacity-60 z-50 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="/">
+        <img src="{% static 'images/logo2.png' %}" alt="Rhithm Revival Logo" class="h-12" />
+      </a>
+  
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="/" class="hover:text-red-500 transition">Home</a>
+        <a href="/about" class="hover:text-red-500 transition">AboutUS</a>
+        <a href="/events" class="hover:text-red-500 transition">Events</a>
+
+  
+        <!-- Logout Button -->
+        <a href="{% url 'logout' %}" class="ml-4 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300">
+          Logout
+        </a>
+      </nav>
+  
+      <!-- Hamburger Icon for Mobile -->
+      <div class="md:hidden cursor-pointer" id="menu-btn">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </div>
+    </div>
+  
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 flex-col bg-black space-y-4 w-full justify-self-center gap-8">
+      <a href="/" class="hover:text-red-500 transition">Home</a>
+      <a href="/about" class="hover:text-red-500 transition">AboutUs</a>
+      <a href="/events" class="hover:text-red-500 transition">Events</a>
+      <a href="{% url 'logout' %}" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300">
+        Logout
+      </a>
+    </div>
+</header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-24 px-6 animate-fade">
+    <h1 class="text-5xl font-extrabold mb-4">Meet <span class="text-indigo-500">Rhithm</span></h1>
+    <p class="text-lg max-w-3xl mx-auto text-gray-300">Creating immersive soundscapes and unforgettable performances since 2021.</p>
+  </section>
+
+  <!-- The Origin Beat -->
+  <section class="py-20 px-6 md:px-20 animate-fade">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold text-indigo-400">The Origin Beat</h2>
+        <p class="text-gray-400">Rhithm was born from late-night jam sessions and street gigs. What started as three friends with a dream has grown into a powerful voice in the underground music scene.</p>
+        <p class="text-gray-500">From basements to festival stages, our rhythm has evolved — but the passion remains pure.</p>
+      </div>
+      <img src="{% static 'images/logo2.png' %}" alt="Origin Photo" class="rounded-xl shadow-xl animate-float"/>
+    </div>
+  </section>
+
+  <!-- Why We Play -->
+  <section class="py-20 px-6 md:px-20 bg-black animate-fade">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-indigo-400 mb-4">Why We Play</h2>
+      <p class="text-gray-400 text-lg">Music is our language. We play to inspire, disrupt, and heal. Every note is a story, every beat a battle cry.</p>
+    </div>
+  </section>
+
+  <!-- Sonic Identity -->
+<!-- Sonic Identity -->
+<section class="py-20 px-6 md:px-20 animate-fade">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-indigo-400 mb-6">Sonic Identity</h2>
+    <p class="text-gray-400 mb-8">We blend rock, synthwave, and indie soul into a style uniquely ours. Think Nine Inch Nails meets Alt-J, with a dash of Indian fusion.</p>
+    
+    <div class="grid gap-6 sm:grid-cols-3">
+      <!-- Card 1 -->
+      <div class="bg-gray-900 p-6 rounded-xl hover:scale-105 transition shadow-lg">
+        <img src="{% static 'images/guitar.png' %}" alt="Guitar Icon" class="h-48 w-48 mx-auto mb-4" />
+        <h4 class="font-bold mb-2 text-white">Raw Guitars</h4>
+        <p class="text-sm text-gray-300">Punchy riffs, atmospheric leads.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-gray-900 p-6 rounded-xl hover:scale-105 transition shadow-lg">
+        <img src="{% static 'images/wave1.png' %}" alt="Synth Icon" class="h-48 w-48 mx-auto mb-4" />
+        <h4 class="font-bold mb-2 text-white">Synth Layers</h4>
+        <p class="text-sm text-gray-300">Ambient pads & arpeggiated dreams.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-gray-900 p-6 rounded-xl hover:scale-105 transition shadow-lg">
+        <img src="{% static 'images/drums.png' %}" alt="Drums Icon" class="h-48 w-48 mx-auto mb-4" />
+        <h4 class="font-bold mb-2 text-white">Deep Grooves</h4>
+        <p class="text-sm text-gray-300">Organic drums meet digital punch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Moments that Defined Us -->
+  <section class="py-20 px-6 md:px-20 bg-black animate-fade">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-indigo-400 mb-4">Moments that Defined Us</h2>
+      <ul class="text-gray-400 space-y-2 justify-self-center mt-6">
+        <li class="flex items-center gap-3">
+          <img src="{% static 'images/mic.png' %}" alt="Mic Icon" class="w-16 h-16" />
+          2021: First gig at IndieWave Open Mic
+        </li>
+        <li class="flex items-center gap-3">
+          <img src="{% static 'images/disc.png' %}" alt="CD Icon" class="w-16 h-16" />
+          2022: Debut EP "Echoes of Neon"
+        </li>
+        <li class="flex items-center gap-3">
+          <img src="{% static 'images/trophy.png' %}" alt="Trophy Icon" class="w-16 h-16" />
+          2023: Headlined Sonic Fest
+        </li>
+        <li class="flex items-center gap-3">
+          <img src="{% static 'images/hand.png' %}" alt="Handshake Icon" class="w-16 h-16" />
+          2024: Collaboration with DJ Ayra
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Behind the Sound -->
+  <section class="py-20 px-6 md:px-20 animate-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-indigo-400 text-center mb-6">Behind the Sound</h2>
+      <div class="grid sm:grid-cols-2 gap-8 text-gray-400">
+        <div>
+          <h4 class="font-semibold mb-2">🎚️ Gear</h4>
+          <p>Fender Strat, Nord Stage 3, Roland TR-8S, Ableton Live.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2">🎙️ Studio</h4>
+          <p>DIY home studio with sound-treated walls, analog vibes, and digital precision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-20 px-6 bg-indigo-600 text-white text-center animate-fade">
+    <h2 class="text-3xl font-bold mb-4">Ready to Feel the Rhithm?</h2>
+    <p class="mb-6">Catch our live shows, drop us a message, or follow our sonic journey.</p>
+    <a href="/contact" class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Contact Us</a>
+  </section>
+
+  <footer class="bg-gradient-to-l from-zinc-900 to-black text-gray-300 px-6 py-16">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 text-center md:text-left">
+  
+      <!-- Logo & About -->
+      <div>
+        <div class="flex justify-center md:justify-start mb-4">
+          <img src="{% static 'images/logo2.png' %}" alt="Rhithm Band Logo" class="h-28 w-auto hover:scale-110 transition-transform duration-300" />
+        </div>
+        <p class="text-sm leading-relaxed text-gray-400">
+          Rhithm is not just a band — it's an experience. We bring music to life with vibrant performances and soul-touching sounds. Let's make your event unforgettable.
+        </p>
+      </div>
+  
+      <!-- Navigation -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#home" class="hover:text-white transition">Home</a></li>
+          <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+          <li><a href="#events" class="hover:text-white transition">Events</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+        <p class="text-sm text-gray-400 mb-2 flex items-center gap-2">
+          <img src="{% static 'images/loc.png' %}" alt="Location Icon" class="w-6 h-6">
+          Chennai, Tamil Nadu, India
+        </p>
+        <p class="text-sm text-gray-400 mb-2 flex items-center gap-2">
+          <img src="{% static 'images/email copy.png' %}" alt="Email Icon" class="w-6 h-6">
+          <a href="mailto:rhithmband@example.com" class="text-gray-400 hover:underline">
+            rhithmband@example.com
+          </a>
+        </p>
+        <p class="text-sm text-gray-400 flex items-center gap-2">
+          <img src="{% static 'images/phone.png' %}" alt="Phone Icon" class="w-6 h-6">
+          <a href="tel:+919876543210" class=" hover:underline text-gray-400">+91 98765 43210</a>
+        </p>
+        
+      </div>
+    </div>
+  
+    <!-- Bottom -->
+    <div class="mt-12 border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+      © 2025 Rhithm Band. Made with ❤️ for the rhythm of life.
+    </div>
+  </footer>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+  
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    });
+</script>
+</body>
+</html>

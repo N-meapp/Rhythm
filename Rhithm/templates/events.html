@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rhythm Revival - Upcoming Events</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <header class="w-full fixed top-0 left-0 bg-black bg-opacity-60 z-50 text-white">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <!-- Logo -->
+          <a href="/">
+            <img src="{% static 'images/logo2.png' %}" alt="Rhithm Revival Logo" class="h-12" />
+          </a>
+      
+          <!-- Desktop Nav -->
+          <nav class="hidden md:flex space-x-6 items-center">
+            <a href="/" class="hover:text-red-500 transition">Home</a>
+            <a href="/about" class="hover:text-red-500 transition">AboutUs</a>
+            <a href="/events" class="hover:text-red-500 transition">Events</a>
+            <a href="#gallery" class="hover:text-red-500 transition">Gallery</a>
+            <a href="#contact" class="hover:text-red-500 transition">Contact</a>
+            <!-- Logout Button -->
+            <a href="{% url 'logout' %}" class="ml-4 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300">
+              Logout
+            </a>
+          </nav>
+      
+          <!-- Hamburger Icon for Mobile -->
+          <div class="md:hidden cursor-pointer" id="menu-btn">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </div>
+        </div>
+      
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 flex-col bg-black space-y-4">
+          <a href="/" class="hover:text-red-500 transition">Home</a>
+          <a href="/about" class="hover:text-red-500 transition">AboutUs</a>
+          <a href="/events" class="hover:text-red-500 transition">Events</a>
+          <a href="#gallery" class="hover:text-red-500 transition">Gallery</a>
+          <a href="#contact" class="hover:text-red-500 transition">Contact</a>
+          <a href="{% url 'logout' %}" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300">
+            Logout
+          </a>
+        </div>
+    </header>
+
+  <!-- Header -->
+  <header class="text-center py-12 pt-24">
+    <h1 class="text-5xl font-extrabold tracking-wide">🎵 Upcoming Events</h1>
+    <p class="text-gray-400 mt-2">Catch us live in cities across the country!</p>
+  </header>
+
+  <!-- Events Grid -->
+  <section class="px-4 md:px-16 lg:px-24 pb-20">
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+      
+      <!-- Event Card 1 -->
+      <div class="group rounded-2xl overflow-hidden shadow-lg bg-gray-900 transition-transform hover:scale-105" data-aos="fade-up">
+        <img src="{% static 'images/event1.jpg' %}" alt="Event 1" class="h-60 w-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="p-6">
+          <h2 class="text-2xl font-bold mb-1">Chennai Beats Fest</h2>
+          <p class="text-sm text-gray-400 mb-3">📍 Marina Arena • 🗓️ June 15, 2025</p>
+          <p class="text-gray-300">Experience electrifying rhythms and immersive stage energy with our full band lineup.</p>
+        </div>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="group rounded-2xl overflow-hidden shadow-lg bg-gray-900 transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+        <img src="{% static 'images/event2.jpg' %}" alt="Event 2" class="h-60 w-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="p-6">
+          <h2 class="text-2xl font-bold mb-1">Mumbai Groove Night</h2>
+          <p class="text-sm text-gray-400 mb-3">📍 Phoenix Grounds • 🗓️ July 3, 2025</p>
+          <p class="text-gray-300">Join us for a night of soul, funk, and contemporary sounds.</p>
+        </div>
+      </div>
+
+      <!-- Event Card 3 -->
+      <div class="group rounded-2xl overflow-hidden shadow-lg bg-gray-900 transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+        <img src="{% static 'images/event3.jpg' %}" alt="Event 3" class="h-60 w-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="p-6">
+          <h2 class="text-2xl font-bold mb-1">Bangalore Bass Bash</h2>
+          <p class="text-sm text-gray-400 mb-3"><img src="" alt=""> Echo Grounds • 🗓️ August 9, 2025</p>
+          <p class="text-gray-300">Let the bass drop! High energy and powerful performances await.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3 mt-9">
+      
+        <!-- Event Card 1 -->
+        <div class="group rounded-2xl overflow-hidden shadow-lg bg-gray-900 transition-transform hover:scale-105" data-aos="fade-up">
+          <img src="{% static 'images/event4.jpg' %}" alt="Event 1" class="h-60 w-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="p-6">
+            <h2 class="text-2xl font-bold mb-1">Chennai Beats Fest</h2>
+            <p class="text-sm text-gray-400 mb-3">📍 Marina Arena • 🗓️ June 15, 2025</p>
+            <p class="text-gray-300">Experience electrifying rhythms and immersive stage energy with our full band lineup.</p>
+          </div>
+        </div>
+  
+        <!-- Event Card 2 -->
+        <div class="group rounded-2xl overflow-hidden shadow-lg bg-gray-900 transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+          <img src="{% static 'images/event3.jpg' %}" alt="Event 2" class="h-60 w-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="p-6">
+            <h2 class="text-2xl font-bold mb-1">Mumbai Groove Night</h2>
+            <p class="text-sm text-gray-400 mb-3">📍 Phoenix Grounds • 🗓️ July 3, 2025</p>
+            <p class="text-gray-300">Join us for a night of soul, funk, and contemporary sounds.</p>
+          </div>
+        </div>
+  
+        <!-- Event Card 3 -->
+        <div class="group rounded-2xl overflow-hidden shadow-lg bg-gray-900 transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+          <img src="{% static 'images/event1.jpg' %}" alt="Event 3" class="h-60 w-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="p-6">
+            <h2 class="text-2xl font-bold mb-1">Bangalore Bass Bash</h2>
+            <p class="text-sm text-gray-400 mb-3"><img src="" alt=""> Echo Grounds • 🗓️ August 9, 2025</p>
+            <p class="text-gray-300">Let the bass drop! High energy and powerful performances await.</p>
+          </div>
+        </div>
+  
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-l from-zinc-900 to-black text-gray-300 px-6 py-16">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 text-center md:text-left">
+  
+      <!-- Logo & About -->
+      <div>
+        <div class="flex justify-center md:justify-start mb-4">
+          <img src="{% static 'images/logo2.png' %}" alt="Rhithm Band Logo" class="h-28 w-auto hover:scale-110 transition-transform duration-300" />
+        </div>
+        <p class="text-sm leading-relaxed text-gray-400">
+          Rhithm is not just a band — it's an experience. We bring music to life with vibrant performances and soul-touching sounds. Let's make your event unforgettable.
+        </p>
+      </div>
+  
+      <!-- Navigation -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#home" class="hover:text-white transition">Home</a></li>
+          <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+          <li><a href="#events" class="hover:text-white transition">Events</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+        <p class="text-sm text-gray-400 mb-2 flex items-center gap-2">
+          <img src="{% static 'images/loc.png' %}" alt="Location Icon" class="w-6 h-6">
+          Chennai, Tamil Nadu, India
+        </p>
+        <p class="text-sm text-gray-400 mb-2 flex items-center gap-2">
+          <img src="{% static 'images/email copy.png' %}" alt="Email Icon" class="w-6 h-6">
+          <a href="mailto:rhithmband@example.com" class="text-gray-400 hover:underline">
+            rhithmband@example.com
+          </a>
+        </p>
+        <p class="text-sm text-gray-400 flex items-center gap-2">
+          <img src="{% static 'images/phone.png' %}" alt="Phone Icon" class="w-6 h-6">
+          <a href="tel:+919876543210" class=" hover:underline text-gray-400">+91 98765 43210</a>
+        </p>
+        
+      </div>
+    </div>
+  
+    <!-- Bottom -->
+    <div class="mt-12 border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+      © 2025 Rhithm Band. Made with ❤️ for the rhythm of life.
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+  
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    });
+</script>
+</body>
+</html>

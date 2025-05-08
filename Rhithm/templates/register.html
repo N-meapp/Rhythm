@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-black via-black to-green-950 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white shadow-2xl rounded-xl p-8 w-full max-w-md fade-in">
+        <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-6">Create Account</h2>
+
+        <!-- Display messages -->
+        {% if messages %}
+            <div class="mb-4">
+                {% for message in messages %}
+                    <div class="text-red-600 text-sm font-medium fade-in">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Registration Form -->
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+
+            <div>
+                <label for="username" class="block text-gray-700 font-medium mb-1">Username</label>
+                <input type="text" id="username" name="username" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 transition duration-200" required>
+            </div>
+
+            <div>
+                <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+                <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400 transition duration-200" required>
+            </div>
+
+            <div>
+                <label for="password" class="block text-gray-700 font-medium mb-1">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200" required>
+            </div>
+
+            <div>
+                <label for="confirm_password" class="block text-gray-700 font-medium mb-1">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200" required>
+            </div>
+
+            <button type="submit" class="w-full bg-gradient-to-r from-purple-200 to-black text-white py-2 rounded-md text-lg font-semibold hover:scale-105 transform transition duration-300">
+                Register
+            </button>
+        </form>
+
+        <p class="text-center text-sm text-gray-600 mt-6">
+            Already have an account?
+            <a href="{% url 'login' %}" class="text-blue-600 hover:underline transition duration-150">Login here</a>
+        </p>
+    </div>
+
+</body>
+</html>
