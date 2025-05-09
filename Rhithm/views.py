@@ -10,6 +10,8 @@ from django.contrib.auth.hashers import make_password, check_password
 from django.core.mail import send_mail
 from django.conf import settings
 
+from django.views.decorators.cache import never_cache
+
 
 
 
@@ -57,7 +59,7 @@ def about(request):
 #     else:
 #         return redirect('login')
 
-
+@never_cache
 def booking_form(request):
     if 'user_id' in request.session:
         if request.method == 'POST':
@@ -109,7 +111,7 @@ Your Event Team
     else:
         return redirect('login')
 
-
+@never_cache
 def booking_confirmation(request):
     return render(request, 'booking_confirmation.html')
 
@@ -161,8 +163,12 @@ def login_view(request):
     return render(request, 'login.html')
 
 
+# def logout_view(request):
+#     request.session.flush()
+#     messages.success(request, "Logged out successfully.")
+#     return redirect('login')
+
 def logout_view(request):
-    request.session.flush()
+    request.session.flush()  # Clears all session data
     messages.success(request, "Logged out successfully.")
     return redirect('login')
-
